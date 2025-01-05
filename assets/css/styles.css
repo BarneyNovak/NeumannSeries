@@ -24,21 +24,27 @@ body {
     top: 20px;
 }
 
-/* For smaller screens (max-width 768px) */
+
+/* Logo Adjustments */
+.logo img {
+    width: 90px;
+    height: auto;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
 @media (max-width: 768px) {
     .logo img {
-        width: 60px; 
-        position: absolute;
-        left: 20px;
-        top: 20px;
+        width: 60px;
+        left: 10px;
+        top: 10px;
     }
 }
 
-/* For very small screens (max-width 480px) */
 @media (max-width: 480px) {
     .logo img {
-        width: 50px; 
-        position: absolute;
+        width: 50px;
         left: 10px;
         top: 10px;
     }
@@ -82,16 +88,6 @@ h3 {
     text-align: center;
     margin-bottom: 1rem;
   }
-
-.event-link {
-  color: white; /* Ensures the text remains white */
-  text-decoration: none; /* Removes the underline */
-  cursor: pointer; /* Changes the cursor to indicate it's clickable */
-}
-
-.event-link:hover {
-  text-decoration: underline; /* Adds an underline when hovered over */
-}
 
 
   video {
