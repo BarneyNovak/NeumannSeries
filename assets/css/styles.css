@@ -34,6 +34,15 @@ body {
     top: 20px;
 }
 
+.event-link {
+  color: white; /* Ensures the text remains white */
+  text-decoration: none; /* Removes the underline */
+  cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+.event-link:hover {
+  text-decoration: underline; /* Adds an underline when hovered over */
+}
+
 @media (max-width: 768px) {
     .logo img {
         width: 60px;
