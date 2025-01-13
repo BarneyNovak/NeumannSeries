@@ -221,7 +221,7 @@ h3 {
     .timeline-icon {
         font-size: 32px;
         padding: 14px 14px;
-        width: 56px;
+        width: 26px;
         height: 56px;
     }
 
@@ -309,7 +309,7 @@ h3 {
     transform: translateY(-50%);
     background-color: #333;
     color: #fff;
-    padding: 6px 12px; /* Thinner button */
+    padding: 3px 6px; /* Thinner button */
     font-size: 16px; /* Adjusted font size */
     border-radius: 4px; /* Slightly rounded corners for thinner look */
     cursor: pointer;
@@ -348,9 +348,9 @@ h3 {
         transform: translateY(-50%);
         background-color: #333;
         color: #fff;
-        padding: 8px 10px; /* Adjusted smaller button size */
-        font-size: 16px;
-        border-radius: 4px; /* Slightly rounded corners */
+        padding: 4px 4px; /* Adjusted smaller button size */
+        font-size: 14px;
+        border-radius: 8px; /* Slightly rounded corners */
         cursor: pointer;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
@@ -378,9 +378,9 @@ h3 {
     transform: translateY(-50%);
     background-color: #333;
     color: #fff;
-    padding: 8px 10px; /* Adjusted smaller button size */
-    font-size: 16px;
-    border-radius: 4px;
+    padding: 4px 4px; /* Adjusted smaller button size */
+    font-size: 14px;
+    border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     z-index: 101;
