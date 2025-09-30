@@ -150,30 +150,89 @@
         </ul>
     </footer>
 
-
     <script>
         // Get the button
-const scrollTopButton = document.getElementById("scrollTopButton");
+        const scrollTopButton = document.getElementById("scrollTopButton");
 
-// Show the button when the user scrolls down
-window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollTopButton.classList.add("show");
-    } else {
-        scrollTopButton.classList.remove("show");
-    }
-};
+        // Show the button when the user scrolls down
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopButton.classList.add("show");
+            } else {
+                scrollTopButton.classList.remove("show");
+            }
+        };
 
-// Scroll to top when the button is clicked
-scrollTopButton.onclick = function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"  // Smooth scrolling
-    });
-};
+        // Scroll to top when the button is clicked
+        scrollTopButton.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"  // Smooth scrolling
+            });
+        };
 
+        // Hamburger Menu Functionality
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const nav = document.getElementById('nav');
+        const overlay = document.querySelector('.overlay');
+
+        hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking on overlay
+        overlay.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+            this.classList.remove('active');
+        });
+
+        // Close menu when clicking on a nav link, but not dropdown toggles
+        const navLinks = document.querySelectorAll('#nav a:not(.dropdown-toggle)');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+
+        // Handle dropdown menus on mobile
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent event from bubbling up
+                    const dropdownMenu = this.nextElementSibling;
+                    const isOpen = dropdownMenu.style.display === 'block';
+                    
+                    // Close all other dropdowns first
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdownMenu.style.display = isOpen ? 'none' : 'block';
+                }
+            });
+        });
+
+        // Close dropdowns when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                if (!e.target.closest('.dropdown') && !e.target.closest('.hamburger-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.style.display = 'none';
+                    });
+                }
+            }
+        });
     </script>
-
 
 </body>
 </html>
