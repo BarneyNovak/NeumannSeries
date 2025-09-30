@@ -40,18 +40,22 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* FIXED: Mobile header layout to prevent overlapping */
+/* FIXED: Improved mobile header layout for iPhone 11 compatibility */
 @media (max-width: 768px) {
     .header-content {
         justify-content: space-between;
         padding: 0 15px;
         height: 80px;
+        gap: 10px;
+    }
+    
+    .logo {
+        flex: 0 0 auto;
+        z-index: 10;
     }
     
     .logo img {
         width: 60px;
-        left: 10px;
-        top: 10px;
         position: relative;
         left: 0;
         top: 0;
@@ -60,20 +64,42 @@ body {
     h1 {
         font-size: 1.8em !important;
         margin: 0 !important;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: calc(100% - 140px);
+        flex: 1;
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        min-width: 0;
+        padding: 0 10px;
     }
     
     .hamburger-menu {
         right: 10px;
         top: 50%;
         transform: translateY(-50%);
+        flex: 0 0 auto;
+    }
+}
+
+/* FIXED: Better iPhone 11 specific adjustments */
+@media (max-width: 414px) { /* iPhone 11 width */
+    .header-content {
+        padding: 0 10px;
+        height: 70px;
+        gap: 8px;
+    }
+    
+    .logo img {
+        width: 50px;
+    }
+    
+    h1 {
+        font-size: 1.5em !important;
+        padding: 0 8px;
+    }
+    
+    .hamburger-menu {
+        right: 8px;
     }
 }
 
@@ -89,7 +115,6 @@ body {
     
     h1 {
         font-size: 1.5em !important;
-        width: calc(100% - 120px);
     }
     
     .hamburger-menu {
