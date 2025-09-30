@@ -23,7 +23,7 @@
 
 <body class="is-preload">
 
-    <!-- Wrapper -->
+        <!-- Wrapper -->
     <div id="page-wrapper">
 
         <!-- Header with logo and title -->
@@ -37,6 +37,13 @@
                 </div>
                 <!-- Title in the center of the page -->
                 <h1><a href="index.html" alt="Neumann Series">Neumann Series</a></h1>
+                
+                <!-- Hamburger Menu -->
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>  
 
             <!-- Navigation -->
@@ -67,7 +74,9 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="overlay"></div>
         </header>
+
 
         <button id="scrollTopButton" class="scroll-top-btn">&#x2191;</button>
         <!-- Sidebar Timeline -->
@@ -749,29 +758,70 @@
     });
     </script>
 
-<script>
-    // Get the button
-const scrollTopButton = document.getElementById("scrollTopButton");
+    <script>
+        // Get the button
+        const scrollTopButton = document.getElementById("scrollTopButton");
 
-// Show the button when the user scrolls down
-window.onscroll = function() {
-if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    scrollTopButton.classList.add("show");
-} else {
-    scrollTopButton.classList.remove("show");
-}
-};
+        // Show the button when the user scrolls down
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopButton.classList.add("show");
+            } else {
+                scrollTopButton.classList.remove("show");
+            }
+        };
 
-// Scroll to top when the button is clicked
-scrollTopButton.onclick = function() {
-window.scrollTo({
-    top: 0,
-    behavior: "smooth"  // Smooth scrolling
-});
-};
+        // Scroll to top when the button is clicked
+        scrollTopButton.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"  // Smooth scrolling
+            });
+        };
 
-</script>
+        // Hamburger Menu Functionality
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const nav = document.getElementById('nav');
+        const overlay = document.querySelector('.overlay');
+
+        hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking on overlay
+        overlay.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+            this.classList.remove('active');
+        });
+
+        // Close menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('#nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+
+        // Handle dropdown menus on mobile
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+    </script>
 
 
 </body>
 </html>
+
+    
