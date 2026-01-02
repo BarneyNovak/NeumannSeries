@@ -82,10 +82,10 @@
         <!-- Sidebar Timeline -->
 
         <!-- Show button (>>), initially visible on small screens -->
-<button id="showButton" class="toggle-button"> >> </button>
+<button id="showButton" class="toggle-button" aria-label="Open menu"></button>
 
-<!-- Hide button (<<), initially hidden -->
-<button id="hideButton" class="toggle-button" style="display: none;"> << </button>
+<!-- Hide button, initially hidden -->
+<button id="hideButton" class="toggle-button" style="display: none;" aria-label="Close menu"></button>
 
     <!-- Sidebar Timeline -->
     <div id="timeline" class="timeline">
@@ -711,50 +711,96 @@
     const hideButton = document.getElementById('hideButton');
     const timeline = document.getElementById('timeline');
     
-    // Show the timeline when the ">>" button is clicked
-    showButton.addEventListener('click', () => {
-        timeline.style.display = 'block';  // Show the timeline
-        showButton.style.display = 'none'; // Hide the ">>" button
-        hideButton.style.display = 'block'; // Show the "<<"" button
-    });
-    
-    // Hide the timeline when the "<<"" button is clicked
-    hideButton.addEventListener('click', () => {
-        timeline.style.display = 'none';  // Hide the timeline
-        showButton.style.display = 'block'; // Show the ">>" button
-        hideButton.style.display = 'none'; // Hide the "<<"" button
-    });
-    
-    // Optionally, hide the timeline if clicked anywhere outside it (only for smaller screens)
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 && !timeline.contains(e.target) && !showButton.contains(e.target)) {
-            timeline.style.display = 'none'; // Hide the timeline on smaller screens when clicked outside
-            showButton.style.display = 'block'; // Show the ">>" button
-            hideButton.style.display = 'none'; // Hide the "<<"" button
-        }
-    });
-    
-    // Ensure the timeline is visible on larger screens and not hideable by clicking outside
-    if (window.innerWidth > 768) {
-        timeline.style.display = 'flex'; // Keep timeline visible on larger screens
-        showButton.style.display = 'none'; // Hide toggle button on larger screens
-        hideButton.style.display = 'none'; // Hide hide button on larger screens
-    } else {
-        timeline.style.display = 'none'; // Hide timeline by default on smaller screens
-        showButton.style.display = 'block'; // Show toggle button on smaller screens
+    // Function to close timeline
+    function closeTimeline() {
+        timeline.classList.remove('open');
+        showButton.style.display = 'flex';
+        hideButton.style.display = 'none';
     }
     
-    // Handle window resize event
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
-            timeline.style.display = 'flex'; // Keep timeline visible on larger screens
-            showButton.style.display = 'none'; // Hide toggle button on larger screens
-            hideButton.style.display = 'none'; // Hide hide button on larger screens
-        } else {
-            timeline.style.display = 'none'; // Hide timeline on smaller screens
-            showButton.style.display = 'block'; // Show toggle button on smaller screens
+    // Function to show tooltip next to icon
+    function showTooltip(text, iconElement) {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'timeline-icon-tooltip';
+        tooltip.textContent = text;
+        document.body.appendChild(tooltip);
+        
+        // Position next to the icon
+        const rect = iconElement.getBoundingClientRect();
+        tooltip.style.top = (rect.top + rect.height / 2 - tooltip.offsetHeight / 2) + 'px';
+        tooltip.style.left = (rect.right + 10) + 'px';
+        
+        setTimeout(() => {
+            tooltip.remove();
+            closeTimeline();
+        }, 1000);
+    }
+    
+    // Timeline icon click - scroll, show title, then close
+    document.querySelectorAll('.timeline-icon').forEach(item => {
+        item.addEventListener('click', function () {
+            const targetId = this.dataset.target;
+            const target = document.getElementById(targetId);
+            
+            // Set active state
+            document.querySelectorAll('.timeline-icon').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Scroll to section
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // On mobile: show tooltip and close after 1 second
+            if (window.innerWidth <= 768) {
+                showTooltip(targetId, this);
+            }
+        });
+    });
+    
+    // Open timeline
+    showButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        timeline.classList.add('open');
+        showButton.style.display = 'none';
+        hideButton.style.display = 'flex';
+    });
+    
+    // Close timeline
+    hideButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeTimeline();
+    });
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            timeline.classList.contains('open') &&
+            !timeline.contains(e.target) && 
+            !showButton.contains(e.target) && 
+            !hideButton.contains(e.target)) {
+            closeTimeline();
         }
     });
+    
+    // Handle resize
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            timeline.classList.remove('open');
+            timeline.style.display = '';
+            showButton.style.display = 'none';
+            hideButton.style.display = 'none';
+        } else {
+            timeline.style.display = '';
+            if (!timeline.classList.contains('open')) {
+                showButton.style.display = 'flex';
+                hideButton.style.display = 'none';
+            }
+        }
+    }
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
     </script>
 
     <script>
