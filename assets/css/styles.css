@@ -90,26 +90,29 @@ p {
 /* FIXED: Improved mobile header layout for iPhone 11 compatibility */
 @media (max-width: 768px) {
     .header-content {
+        display: flex;
         justify-content: space-between;
-        padding: 0 15px;
+        align-items: center;
+        padding: 0 10px;
         height: 80px;
-        gap: 10px;
+        gap: 5px;
     }
     
     .logo {
         flex: 0 0 auto;
         z-index: 10;
+        order: 1;
     }
     
     .logo img {
-        width: 60px;
+        width: 50px;
         position: relative;
         left: 0;
         top: 0;
     }
     
     h1 {
-        font-size: 1.8em !important;
+        font-size: 1.4em !important;
         margin: 0 !important;
         flex: 1;
         text-align: center;
@@ -117,55 +120,52 @@ p {
         overflow: hidden;
         text-overflow: ellipsis;
         min-width: 0;
-        padding: 0 10px;
+        padding: 0 5px;
+        order: 2;
     }
     
     .hamburger-menu {
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
         flex: 0 0 auto;
+        order: 3;
     }
 }
 
 /* FIXED: Better iPhone 11 specific adjustments */
 @media (max-width: 414px) { /* iPhone 11 width */
     .header-content {
-        padding: 0 10px;
+        padding: 0 8px;
         height: 70px;
-        gap: 8px;
+        gap: 3px;
     }
     
     .logo img {
-        width: 50px;
+        width: 45px;
     }
     
     h1 {
-        font-size: 1.5em !important;
-        padding: 0 8px;
-    }
-    
-    .hamburger-menu {
-        right: 8px;
+        font-size: 1.2em !important;
+        padding: 0 3px;
     }
 }
 
 @media (max-width: 480px) {
     .header-content {
         height: 70px;
-        padding: 0 10px;
+        padding: 0 8px;
+        gap: 3px;
     }
     
     .logo img {
-        width: 50px;
+        width: 45px;
     }
     
     h1 {
-        font-size: 1.5em !important;
-    }
-    
-    .hamburger-menu {
-        right: 5px;
+        font-size: 1.2em !important;
+        padding: 0 3px;
     }
     
     #quote {
