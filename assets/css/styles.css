@@ -99,7 +99,7 @@ p {
     }
     
     .logo {
-        flex: 0 0 auto;
+        flex: 0 0 50px;
         z-index: 10;
         order: 1;
     }
@@ -120,8 +120,11 @@ p {
         overflow: hidden;
         text-overflow: ellipsis;
         min-width: 0;
-        padding: 0 5px;
+        padding: 0;
         order: 2;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .hamburger-menu {
@@ -129,7 +132,7 @@ p {
         right: 0;
         top: 0;
         transform: none;
-        flex: 0 0 auto;
+        flex: 0 0 35px;
         order: 3;
     }
 }
