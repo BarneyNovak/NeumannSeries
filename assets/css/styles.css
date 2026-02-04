@@ -90,18 +90,16 @@ p {
 /* FIXED: Improved mobile header layout for iPhone 11 compatibility */
 @media (max-width: 768px) {
     .header-content {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
         align-items: center;
         padding: 0 10px;
         height: 80px;
-        gap: 5px;
     }
     
     .logo {
-        flex: 0 0 50px;
+        justify-self: start;
         z-index: 10;
-        order: 1;
     }
     
     .logo img {
@@ -112,28 +110,22 @@ p {
     }
     
     h1 {
-        font-size: 1.4em !important;
+        font-size: 1.3em !important;
         margin: 0 !important;
-        flex: 1;
         text-align: center;
+        justify-self: center;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        min-width: 0;
         padding: 0;
-        order: 2;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
     }
     
     .hamburger-menu {
+        justify-self: end;
         position: relative;
         right: 0;
         top: 0;
         transform: none;
-        flex: 0 0 35px;
-        order: 3;
     }
 }
 
