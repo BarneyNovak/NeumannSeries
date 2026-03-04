@@ -576,71 +576,58 @@ video {
         display: none;
     }
 
-    /* Style for the show button (>>) */
+    /* Style for the show button (>) */
     #showButton {
         position: fixed;
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: rgba(50, 50, 50, 0.8);
         color: #fff;
-        padding: 12px 8px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        border-radius: 0 20px 20px 0;
+        padding: 20px 4px;
+        font-size: 14px;
+        font-weight: 300;
+        border-radius: 0 4px 4px 0;
         cursor: pointer;
-        box-shadow: 2px 4px 12px rgba(102, 126, 234, 0.4);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
         z-index: 101;
         border: none;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
+        line-height: 1;
     }
 
     #showButton:hover {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        transform: translateY(-50%) translateX(2px);
-        box-shadow: 4px 6px 16px rgba(102, 126, 234, 0.5);
+        background: rgba(80, 80, 80, 0.9);
+        padding: 20px 6px;
+    }
+
+    /* Style for the hide button (<) */
+    #hideButton {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: rgba(50, 50, 50, 0.8);
+        color: #fff;
+        padding: 20px 4px;
+        font-size: 14px;
+        font-weight: 300;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 101;
+        border: none;
+        line-height: 1;
+        display: none;
+    }
+
+    #hideButton:hover {
+        background: rgba(80, 80, 80, 0.9);
+        padding: 20px 6px;
     }
 
     /* Timeline when expanded */
     #timeline.open {
         display: block;
-    }
-}
-
-/* Style for the hide button (<<) */
-#hideButton {
-    position: fixed;
-    top: 90%;
-    left: 0%; 
-    transform: translateY(-50%);
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: #fff;
-    padding: 12px 8px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    box-shadow: 2px 4px 12px rgba(245, 87, 108, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 101;
-    border: none;
-    display: none;
-}
-
-#hideButton:hover {
-    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
-    transform: translateY(-50%) translateX(2px);
-    box-shadow: 4px 6px 16px rgba(245, 87, 108, 0.5);
-}
-
-/* For smaller screens (max-width: 768px) */
-@media (max-width: 768px) {
-    .timeline-icon:hover + #hideButton {
-        display: block; /* Show the hide button on hover */
     }
 }
 
