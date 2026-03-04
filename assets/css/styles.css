@@ -577,7 +577,7 @@ video {
         transform: translateY(-50%);
         background: rgba(50, 50, 50, 0.8);
         color: #fff;
-        padding: 20px 16px;
+        padding: 20px 8px;
         font-size: 14px;
         font-weight: 300;
         border-radius: 0 4px 4px 0;
@@ -601,7 +601,7 @@ video {
         transform: translateY(-50%);
         background: rgba(50, 50, 50, 0.8);
         color: #fff;
-        padding: 20px 16px;
+        padding: 20px 8px;
         font-size: 14px;
         font-weight: 300;
         border-radius: 0 4px 4px 0;
