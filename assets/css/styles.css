@@ -593,11 +593,11 @@ video {
         padding: 20px 6px;
     }
 
-    /* Style for the hide button (<) */
+    /* Style for the hide button (<) - on right side of timeline */
     #hideButton {
         position: fixed;
         top: 50%;
-        left: 0;
+        left: 70vw;
         transform: translateY(-50%);
         background: rgba(50, 50, 50, 0.8);
         color: #fff;
@@ -615,7 +615,6 @@ video {
 
     #hideButton:hover {
         background: rgba(80, 80, 80, 0.9);
-        padding: 20px 6px;
     }
 
     /* Timeline when expanded */
