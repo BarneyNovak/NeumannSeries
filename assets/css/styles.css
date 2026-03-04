@@ -461,14 +461,16 @@ video {
     }
 
     .timeline-icon {
-        font-size: 22px;
-        padding: 8px;
-        width: 44px;
-        height: 44px;
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: 22px !important;
+        padding: 16px !important;
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-color: #333 !important;
+        box-sizing: border-box !important;
     }
 
     .timeline-icon:hover::after {
@@ -482,16 +484,17 @@ video {
     background-color: #333333;
     color: #fff;
     padding: 5px 5px;
-    font-size: 20px; /* Slightly smaller default font size */
+    font-size: 20px;
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    display: center;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* Hover Text Appears Next to Emoji (connected, with background) */
@@ -582,7 +585,7 @@ video {
         transform: translateY(-50%);
         background: rgba(50, 50, 50, 0.8);
         color: #fff;
-        padding: 20px 8px;
+        padding: 20px 16px;
         font-size: 14px;
         font-weight: 300;
         border-radius: 0 4px 4px 0;
@@ -606,7 +609,7 @@ video {
         transform: translateY(-50%);
         background: rgba(50, 50, 50, 0.8);
         color: #fff;
-        padding: 20px 8px;
+        padding: 20px 16px;
         font-size: 14px;
         font-weight: 300;
         border-radius: 0 4px 4px 0;
