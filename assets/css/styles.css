@@ -534,18 +534,6 @@ video {
     right: 6px;
 }
 
-/* Timeline Icons Size Adjustment for Smaller Screens */
-@media screen and (max-width: 768px) {
-    .timeline-icon {
-        font-size: 18px;
-        padding: 6px;
-    }
-
-    .timeline-icon.large {
-        font-size: 22px;
-        padding: 8px;
-    }
-}
 
 /* Toggle Button for Small Screens */
 #toggleButton {
