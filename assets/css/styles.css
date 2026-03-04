@@ -300,6 +300,31 @@ h3 {
     letter-spacing: 0.5px;
 }
 
+/* Page Title - optimized for all screens */
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 2.5rem 0 2rem 0;
+    padding: 0 1rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.5rem;
+        margin: 2rem 0 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+}
+
 h4 {
     font-size: 1.1rem;
     font-weight: 600;
