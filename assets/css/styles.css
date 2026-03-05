@@ -672,15 +672,17 @@ video {
 
     #showButton,
     #hideButton {
-        display: none; /* Hide the buttons completely on larger screens */
+        display: none !important;
     }
 
     #timeline {
-        display: flex; /* Keep timeline visible */
+        display: flex !important;
     }
 
-    .close-icon {
-        display: none;
+    .close-icon,
+    #hideButton.close-icon,
+    .timeline-icon.close-icon {
+        display: none !important;
     }
 }
 
