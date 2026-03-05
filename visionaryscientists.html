@@ -697,10 +697,26 @@
         // Add click event listener to the timeline icons
         document.querySelectorAll('.timeline-icon').forEach(icon => {
             icon.addEventListener('click', function() {
+                // Skip close button
+                if (this.classList.contains('close-icon')) return;
+                
                 const target = document.getElementById(this.dataset.target);
-                target.scrollIntoView({ behavior: 'smooth' });
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
                 document.querySelectorAll('.timeline-icon').forEach(item => item.classList.remove('active'));
                 this.classList.add('active');
+                
+                // Auto-close sidebar after 1 second on mobile
+                if (window.innerWidth <= 768) {
+                    const timeline = document.getElementById('timeline');
+                    const showButton = document.getElementById('showButton');
+                    
+                    setTimeout(() => {
+                        timeline.style.display = 'none';
+                        showButton.style.display = 'block';
+                    }, 1000);
+                }
             });
         });
     </script>
