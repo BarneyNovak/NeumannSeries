@@ -437,13 +437,16 @@ video {
     position: relative;
     box-sizing: border-box;
     flex-shrink: 0;
+    margin: 0;
 }
 
 .close-icon {
     font-size: 20px;
     font-weight: bold;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
 }
 
 .close-icon:hover::after {
@@ -452,24 +455,38 @@ video {
 
 @media (max-width: 768px) {
     .timeline {
-        padding: 10px;
-        gap: 8px;
+        padding: 10px !important;
+        gap: 8px !important;
     }
 
     .timeline.open {
-        display: flex;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
     }
 
     .timeline-icon {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
         font-size: 22px;
+        margin: 0 !important;
+    }
+
+    .timeline-icon:hover::after {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #fff !important;
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        border-radius: 8px !important;
     }
 
     .close-icon {
-        display: flex;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 }
 
@@ -482,6 +499,7 @@ video {
     .timeline.open {
         display: flex !important;
         flex-direction: column !important;
+        gap: 8px !important;
     }
 
     .timeline-icon {
@@ -490,12 +508,18 @@ video {
         min-width: 44px !important;
         min-height: 44px !important;
         font-size: 20px;
+        margin: 0 !important;
     }
 
     .timeline-icon:hover::after {
         background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #fff !important;
         padding: 8px 12px !important;
         font-size: 13px !important;
+        white-space: nowrap !important;
+        border-radius: 8px !important;
+        max-width: none !important;
+        width: auto !important;
     }
 }
 
