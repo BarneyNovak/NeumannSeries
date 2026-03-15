@@ -102,7 +102,7 @@
             <div id="The New Frontier" class="section">
                 <h2 align="center">The New Frontier</h2>
 
-                <p><strong>Date: March 28, 2026</strong></p>
+                <p><strong>Date: March 28-29, 2026</strong></p>
                 <p><strong>Location: Columbia University, Pupin Hall</strong></p>
                 
                 <div style="text-align:center;">
@@ -186,7 +186,39 @@ By bringing together students, early-career researchers, and senior scholars acr
             <!-- Program Section -->
             <div id="Program" class="section" style="margin-bottom: 3rem;">
                 <h2 style="text-align: center;">Program</h2>
-                <p style="text-align: center; font-size: 1.2rem; color: #888; margin-top: 2rem;">Program coming soon...</p>
+                
+                <div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0;">
+                    <button id="btnMarch28" onclick="showProgram('march28')" style="padding: 10px 24px; background: #4CAF50; border: none; border-radius: 4px; font-size: 1em; font-weight: 600; color: #fff; cursor: pointer;">March 28</button>
+                    <button id="btnMarch29" onclick="showProgram('march29')" style="padding: 10px 24px; background: rgba(76,175,80,0.3); border: none; border-radius: 4px; font-size: 1em; font-weight: 600; color: #fff; cursor: pointer;">March 29</button>
+                </div>
+                
+                <div id="programMarch28" style="text-align: center;">
+                    <img src="images/newfrontiers/program-march28.png" alt="Program March 28" style="max-width: 100%; height: auto;">
+                </div>
+                <div id="programMarch29" style="text-align: center; display: none;">
+                    <img src="images/newfrontiers/program-march29.png" alt="Program March 29" style="max-width: 100%; height: auto;">
+                </div>
+                
+                <script>
+                    function showProgram(day) {
+                        const march28 = document.getElementById('programMarch28');
+                        const march29 = document.getElementById('programMarch29');
+                        const btn28 = document.getElementById('btnMarch28');
+                        const btn29 = document.getElementById('btnMarch29');
+                        
+                        if (day === 'march28') {
+                            march28.style.display = 'block';
+                            march29.style.display = 'none';
+                            btn28.style.background = '#4CAF50';
+                            btn29.style.background = 'rgba(76,175,80,0.3)';
+                        } else {
+                            march28.style.display = 'none';
+                            march29.style.display = 'block';
+                            btn28.style.background = 'rgba(76,175,80,0.3)';
+                            btn29.style.background = '#4CAF50';
+                        }
+                    }
+                </script>
             </div>
 
             <div id="Speakers" class="section">
@@ -658,7 +690,7 @@ Today, as Head of AI at ValidMind, he leads AI engineering, product, and strateg
                         <div class="card flashcard" id="speaker18" onclick="flipCard('speaker18')">
                             <div class="flip-card-inner">
                                 <div class="card-front">
-                                    <img src="images/newfrontiers/placeholder.jpeg" alt="Réthélyi, János" class="speaker-img">
+                                    <img src="images/newfrontiers/janosrethelyi.jpeg" alt="Réthélyi, János" class="speaker-img">
                                     <div class="card-body">
                                         <h3 class="card-title">Réthélyi, János</h3>
                                         <p class="card-institution">Semmelweis University</p>
@@ -666,7 +698,7 @@ Today, as Head of AI at ValidMind, he leads AI engineering, product, and strateg
                                 </div>
                                 <div class="card-back">
                                     <div class="card-body">
-                                        <p class="card-text">Biography coming soon.</p>
+                                        <p class="card-text">Dr. János Réthelyi is a psychiatrist and researcher, and Director of the Department of Psychiatry and Psychotherapy at Semmelweis University. He believes that medical students must be motivated and inspired to find psychiatric disorders intellectually engaging so the profession becomes attractive to them. At the same time, he emphasizes that patient care must always be delivered with the highest professional standards and strong ethical commitment, as the clinic's work significantly influences psychiatric care across the entire Budapest region. Dr. Réthelyi graduated from the Faculty of Medicine in 1999 and began his PhD studies at the Institute of Behavioural Sciences under the supervision of Dr. Mária Kopp. In 2012 he spent a year as a visiting researcher at the Salk Institute in San Diego in Professor Fred H. Gage's laboratory. He is currently a Fulbright Visiting Scholar at Indiana University Bloomington.</p>
                                     </div>
                                 </div>
                             </div>
