@@ -302,6 +302,30 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) < swipeThreshold) return;
+            if (diff > 0) {
+                showImage(currentIndex + 1); // Swipe left = next
+            } else {
+                showImage(currentIndex - 1); // Swipe right = previous
+            }
+        }
+
         // Get the button
         const scrollTopButton = document.getElementById("scrollTopButton");
 
