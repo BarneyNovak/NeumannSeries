@@ -84,21 +84,68 @@
         <button id="scrollTopButton" class="scroll-top-btn">&#x2191;</button>
 
         <style>
-            .image-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px; 
+            .masonry-grid {
+                column-count: 3;
+                column-gap: 8px;
             }
-            .image-grid img {
+            .masonry-grid img {
                 width: 100%;
-                height: auto;
+                display: block;
+                margin-bottom: 8px;
+                cursor: pointer;
+                transition: opacity 0.3s ease;
             }
+            .masonry-grid img:hover {
+                opacity: 0.85;
+            }
+            @media (max-width: 992px) {
+                .masonry-grid { column-count: 2; }
+            }
+            @media (max-width: 576px) {
+                .masonry-grid { column-count: 1; }
+            }
+            .lightbox {
+                display: none;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: rgba(0,0,0,0.95);
+                z-index: 9999;
+                justify-content: center;
+                align-items: center;
+            }
+            .lightbox.active { display: flex; }
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+            }
+            .lightbox-close {
+                position: absolute;
+                top: 20px; right: 30px;
+                font-size: 40px;
+                color: #fff;
+                cursor: pointer;
+                z-index: 10000;
+            }
+            .lightbox-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 50px;
+                color: #fff;
+                cursor: pointer;
+                padding: 20px;
+                user-select: none;
+            }
+            .lightbox-prev { left: 20px; }
+            .lightbox-next { right: 20px; }
+            .lightbox-nav:hover { color: #4CAF50; }
         </style>
-
 
 <section id="Neumann Series" class="container">
     <h2 class="page-title">Frontiers of Sciences Gallery</h2>
-    <div class="image-grid">
+    <div class="masonry-grid">
         <img src="/images/frontiersofsciences/gallery/1.jpg" alt="Frontiers of Sciences, John von Neumann Conference in Philadelphia, Event Gallery, pictures, images" />
         <img src="/images/frontiersofsciences/gallery/2.jpg" alt="Frontiers of Sciences, John von Neumann Conference in Philadelphia, Event Gallery, pictures, images" />
         <img src="/images/frontiersofsciences/gallery/3.jpg" alt="Frontiers of Sciences, John von Neumann Conference in Philadelphia, Event Gallery, pictures, images" />
@@ -206,6 +253,13 @@
 </div>
 </section>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+    <img src="" alt="Gallery Image" id="lightbox-img">
+    <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+</div>
 
 </div>
 
@@ -218,6 +272,79 @@
 </footer>
 
     <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryImages = document.querySelectorAll('.masonry-grid img');
+        let currentIndex = 0;
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showImage(index) {
+            if (index < 0) index = galleryImages.length - 1;
+            if (index >= galleryImages.length) index = 0;
+            currentIndex = index;
+            lightboxImg.src = galleryImages[currentIndex].src;
+        }
+
+        document.getElementById('lightbox-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentIndex - 1);
+        });
+
+        document.getElementById('lightbox-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentIndex + 1);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) < swipeThreshold) return;
+            if (diff > 0) {
+                showImage(currentIndex + 1);
+            } else {
+                showImage(currentIndex - 1);
+            }
+        }
+
         // Get the button
         const scrollTopButton = document.getElementById("scrollTopButton");
 
