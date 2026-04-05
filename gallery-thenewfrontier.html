@@ -85,24 +85,164 @@
         <button id="scrollTopButton" class="scroll-top-btn">&#x2191;</button>
 
         <style>
-            .image-grid {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
+            .masonry-grid {
+                column-count: 3;
+                column-gap: 8px;
             }
-        
-            .image-grid img {
-                max-width: 48%; /* Allow images to occupy up to 50% of the container width */
-                height: 40%; /* Keep aspect ratio intact */
+            .masonry-grid img {
+                width: 100%;
+                display: block;
+                margin-bottom: 8px;
+                cursor: pointer;
+                transition: opacity 0.3s ease;
             }
+            .masonry-grid img:hover {
+                opacity: 0.85;
+            }
+            @media (max-width: 992px) {
+                .masonry-grid { column-count: 2; }
+            }
+            @media (max-width: 576px) {
+                .masonry-grid { column-count: 1; }
+            }
+            /* Lightbox */
+            .lightbox {
+                display: none;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: rgba(0,0,0,0.95);
+                z-index: 9999;
+                justify-content: center;
+                align-items: center;
+            }
+            .lightbox.active { display: flex; }
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+            }
+            .lightbox-close {
+                position: absolute;
+                top: 20px; right: 30px;
+                font-size: 40px;
+                color: #fff;
+                cursor: pointer;
+                z-index: 10000;
+            }
+            .lightbox-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 50px;
+                color: #fff;
+                cursor: pointer;
+                padding: 20px;
+                user-select: none;
+            }
+            .lightbox-prev { left: 20px; }
+            .lightbox-next { right: 20px; }
+            .lightbox-nav:hover { color: #4CAF50; }
         </style>
                 
 <section id="Neumann Series" class="container">
     <h2 class="page-title">The New Frontier Gallery</h2>
-    <p style="text-align: center; font-size: 1.2rem; color: #888; margin-top: 2rem;">Coming Soon</p>
-
-
+    <div class="masonry-grid">
+        <img src="images/newfrontiers/gallery/IMG_3745.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3751.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3754.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3756.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3762.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3764.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3774.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3776.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3777.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3799.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3821.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3827.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3828.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3830.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3831.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3841.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3847.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3850.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3852.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3856.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3859.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3860.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3864.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3865.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3869.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3870.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3890.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3918.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3919.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3928.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3943.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3947.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3951.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3952.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3956.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3958.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3960.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3961.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3962.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3972.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3974.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3979.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3982.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3984.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3987.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3988.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3989.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3990.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_3993.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_4010.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_4012.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_4020.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_4021.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_4023.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_4024.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5249.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5260.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5261.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5287.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5310.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5313.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5314.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5344.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5345.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5346.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5348.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5349.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5350.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5351.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5355.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5357.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5364.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5369.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5375.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5391.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5392.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5393.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5395.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5400.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5401.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5403.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5405.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5407.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5410.jpeg" alt="The New Frontier Conference Gallery" />
+        <img src="images/newfrontiers/gallery/IMG_5412.jpeg" alt="The New Frontier Conference Gallery" />
+    </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+    <img src="" alt="Gallery Image" id="lightbox-img">
+    <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+</div>
 
 <!-- Footer -->
 <footer id="footer">
@@ -113,6 +253,55 @@
 </footer>
 
     <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryImages = document.querySelectorAll('.masonry-grid img');
+        let currentIndex = 0;
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showImage(index) {
+            if (index < 0) index = galleryImages.length - 1;
+            if (index >= galleryImages.length) index = 0;
+            currentIndex = index;
+            lightboxImg.src = galleryImages[currentIndex].src;
+        }
+
+        document.getElementById('lightbox-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentIndex - 1);
+        });
+
+        document.getElementById('lightbox-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentIndex + 1);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+
         // Get the button
         const scrollTopButton = document.getElementById("scrollTopButton");
 
