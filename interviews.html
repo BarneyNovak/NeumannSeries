@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Join the Neumann Series Conferences and community to celebrate mathematics, AI, game theory, and more." />
-    <meta name="keywords" content="Neumann Series,NEUMANN SERIES< neumann series, John von Neumann Series, JOHN VON NEUMANN SERIES, JOHN VON NEUMANN CONFERENCE, john von neumann conference, game theory, chess, Rubik's Cube" />
+    <meta name="description" content="Interviews from the Neumann Series conferences featuring leading scientists and thinkers." />
+    <meta name="keywords" content="Neumann Series, interviews, John von Neumann, science, AI" />
     <meta name="author" content="Tamas Novak, Barnabas Novak" />
     <meta property="og:image" content="https://neumannseries.com/images/neumann-logo.png" />
     <meta property="og:type" content="website" />
-    <title>Neumann Series</title>    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
+    <title>Interviews - Neumann Series</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW2LMRQT2Z"></script>
@@ -34,7 +35,7 @@
                 <!-- Logo on the top left -->
                 <div class="logo">
                     <a href="index.html">
-                        <img src="images/logo/NeumannLogo.png" alt="Neumann Series, NEUMANN SERIES< neumann series, series neumann, Series Neumann, sERIES nEUMANN, john von neumann, John von Neumann, Series, John von Neumann Series" />
+                        <img src="images/logo/NeumannLogo.png" alt="Neumann Series" />
                     </a>
                 </div>
                 <!-- Title in the center of the page -->
@@ -63,16 +64,19 @@
                             <a class="dropdown-item" href="neumann120.html">Neumann 120.</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="interviews.html">Interviews</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="gallery.html" id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Gallery
+                        <a class="nav-link dropdown-toggle" href="#" id="archivesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Archives
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="archivesDropdown">
+                            <h6 class="dropdown-header">Galleries</h6>
                             <a class="dropdown-item" href="gallery-thenewfrontier.html">The New Frontier</a>
                             <a class="dropdown-item" href="gallery-visionaryscientists.html">Visionary Scientists</a>
                             <a class="dropdown-item" href="gallery-frontiersofsciences.html">Frontiers of Sciences</a>
                             <a class="dropdown-item" href="gallery-neumann120.html">Neumann 120.</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="interviews.html">Interviews</a>
+                            <a class="dropdown-item" href="articles.html">Articles</a>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -81,18 +85,20 @@
             <div class="overlay"></div>
         </header>
 
+        <button id="scrollTopButton" class="scroll-top-btn">&#x2191;</button>
+
         <style>
             .video-container {
-                max-width: 800px; /* Adjust the maximum width as needed */
-                margin: 0 auto; /* Center the container horizontally */
-                padding: 20px; /* Add some spacing around the video */
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
             }
             .embed-responsive {
                 position: relative;
                 width: 100%;
-                padding-bottom: 56.25%; /* Aspect ratio for 16:9 */
+                padding-bottom: 56.25%;
                 overflow: hidden;
-                background-color: #000; /* Optional: background color for the container */
+                background-color: #000;
             }
             .embed-responsive iframe {
                 position: absolute;
@@ -100,28 +106,56 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                border: none; /* Remove default iframe border */
+                border: none;
+            }
+            .interview-section {
+                margin-bottom: 3rem;
+            }
+            .interview-section h3 {
+                color: #4CAF50;
+                border-bottom: 2px solid #4CAF50;
+                padding-bottom: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .coming-soon {
+                text-align: center;
+                padding: 2rem;
+                background: rgba(255,255,255,0.05);
+                border-radius: 8px;
+                color: #888;
+                font-style: italic;
             }
         </style>
 
-        <button id="scrollTopButton" class="scroll-top-btn">&#x2191;</button>
+<section class="container">
+    <h2 class="page-title">Interviews</h2>
 
-        <h2 class="page-title">Watch the Lecture</h2>
+    <div class="interview-section">
+        <h3>Neumann 120.</h3>
         <div class="video-container">
             <div class="embed-responsive">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ULfKNjF-6uM" allowfullscreen></iframe>
             </div>
         </div>
+    </div>
 
+    <div class="interview-section">
+        <h3>The New Frontier</h3>
+        <div class="coming-soon">
+            <p>Coming soon...</p>
+        </div>
+    </div>
+</section>
 
+</div>
 
-            <!-- Footer -->
-    <footer id="footer">
-        <ul class="copyright">
-            <li>&copy; John von Neumann Series. All rights reserved.</li>
-            <li>Design: Barnabas Novak</li>
-        </ul>
-    </footer>
+<!-- Footer -->
+<footer id="footer">
+    <ul class="copyright">
+        <li>&copy; John von Neumann Series. All rights reserved.</li>
+        <li>Design: Barnabas Novak</li>
+    </ul>
+</footer>
 
     <script>
         // Get the button
@@ -140,7 +174,7 @@
         scrollTopButton.onclick = function() {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth"  // Smooth scrolling
+                behavior: "smooth"
             });
         };
 
@@ -155,14 +189,12 @@
             overlay.classList.toggle('active');
         });
 
-        // Close menu when clicking on overlay
         overlay.addEventListener('click', function() {
             hamburgerMenu.classList.remove('active');
             nav.classList.remove('active');
             this.classList.remove('active');
         });
 
-        // Close menu when clicking on a nav link, but not dropdown toggles
         const navLinks = document.querySelectorAll('#nav a:not(.dropdown-toggle)');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -172,30 +204,26 @@
             });
         });
 
-        // Handle dropdown menus on mobile
         const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    e.stopPropagation(); // Prevent event from bubbling up
+                    e.stopPropagation();
                     const dropdownMenu = this.nextElementSibling;
                     const isOpen = dropdownMenu.style.display === 'block';
                     
-                    // Close all other dropdowns first
                     document.querySelectorAll('.dropdown-menu').forEach(menu => {
                         if (menu !== dropdownMenu) {
                             menu.style.display = 'none';
                         }
                     });
                     
-                    // Toggle current dropdown
                     dropdownMenu.style.display = isOpen ? 'none' : 'block';
                 }
             });
         });
 
-        // Close dropdowns when clicking outside on mobile
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 if (!e.target.closest('.dropdown') && !e.target.closest('.hamburger-menu')) {
@@ -206,7 +234,6 @@
             }
         });
     </script>
-    
-    
+
 </body>
 </html>
