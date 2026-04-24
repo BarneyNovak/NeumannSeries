@@ -852,12 +852,11 @@ video {
 /* Nested Submenu for Archives > Galleries */
 .dropdown-submenu {
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .dropdown-submenu .submenu-link {
-    padding: 0.5rem 0.25rem 0.5rem 1rem;
+    display: block;
+    padding: 0.5rem 1rem;
     color: #ffffff;
     text-decoration: none;
     white-space: nowrap;
@@ -865,22 +864,6 @@ video {
 
 .dropdown-submenu .submenu-link:hover {
     background-color: #333333;
-}
-
-.dropdown-submenu .submenu-toggle {
-    padding: 0.5rem 0.75rem;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: transform 0.2s ease;
-}
-
-.dropdown-submenu .submenu-toggle:hover {
-    background-color: #333333;
-}
-
-.dropdown-submenu.active .submenu-toggle {
-    transform: rotate(90deg);
 }
 
 .dropdown-menu-sub {
