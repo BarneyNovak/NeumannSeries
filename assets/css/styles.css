@@ -852,10 +852,11 @@ video {
 /* Nested Submenu for Archives > Galleries */
 .dropdown-submenu {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-submenu .submenu-link {
-    display: inline-block;
     padding: 0.5rem 0.25rem 0.5rem 1rem;
     color: #ffffff;
     text-decoration: none;
@@ -867,15 +868,11 @@ video {
 }
 
 .dropdown-submenu .submenu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     padding: 0.5rem 0.75rem;
     color: #ffffff;
     cursor: pointer;
     font-size: 0.8rem;
     transition: transform 0.2s ease;
-    vertical-align: middle;
 }
 
 .dropdown-submenu .submenu-toggle:hover {
