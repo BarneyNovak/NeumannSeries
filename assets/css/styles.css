@@ -849,6 +849,61 @@ video {
     background-color: #333333;
 }
 
+/* Nested Submenu for Archives > Galleries */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-toggle-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-menu-sub {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 180px;
+    background-color: #1f1f1f;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.dropdown-submenu:hover .dropdown-menu-sub {
+    display: block;
+}
+
+.dropdown-menu-sub a {
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu-sub a:hover {
+    background-color: #333333;
+}
+
+/* Mobile: Show submenu inline */
+@media (max-width: 768px) {
+    .dropdown-menu-sub {
+        position: static;
+        display: none;
+        border: none;
+        box-shadow: none;
+        padding-left: 1rem;
+        background-color: #2a2a2a;
+    }
+    
+    .dropdown-submenu.active .dropdown-menu-sub {
+        display: block;
+    }
+}
+
 /* Flashcards Layout */
 .flashcard-container {
     display: flex;
