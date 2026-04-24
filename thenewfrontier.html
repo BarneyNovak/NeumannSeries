@@ -69,7 +69,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="archivesDropdown">
                             <div class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle-sub" href="gallery.html">Galleries ›</a>
+                                <a class="dropdown-item submenu-link" href="gallery.html">Galleries</a><span class="submenu-toggle">&#9656;</span>
                                 <div class="dropdown-menu-sub">
                                     <a class="dropdown-item" href="gallery-thenewfrontier.html">The New Frontier</a>
                                     <a class="dropdown-item" href="gallery-visionaryscientists.html">Visionary Scientists</a>
@@ -1089,7 +1089,7 @@ Today, as Head of AI at ValidMind, he leads AI engineering, product, and strateg
         });
 
         // Close menu when clicking on a nav link, but not dropdown toggles
-        const navLinks = document.querySelectorAll('#nav a:not(.dropdown-toggle)');
+        const navLinks = document.querySelectorAll('#nav a:not(.dropdown-toggle):not(.submenu-link)');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 hamburgerMenu.classList.remove('active');
@@ -1135,8 +1135,8 @@ Today, as Head of AI at ValidMind, he leads AI engineering, product, and strateg
             }
         });
 
-        // Handle nested submenu on mobile (Galleries)
-        const subToggles = document.querySelectorAll('.dropdown-toggle-sub');
+        // Handle nested submenu toggle (Galleries arrow button)
+        const subToggles = document.querySelectorAll('.submenu-toggle');
         subToggles.forEach(toggle => {
             toggle.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
